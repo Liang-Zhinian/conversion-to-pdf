@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:jaxws="http://cxf.apache.org/jaxws" xmlns:jaxrs="http://cxf.apache.org/jaxrs"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://cxf.apache.org/jaxrs
+    http://cxf.apache.org/schemas/jaxrs.xsd
+    http://cxf.apache.org/jaxws
+    http://cxf.apache.org/schemas/jaxws.xsd">
+ 	<!--
+   	<jaxws:endpoint id="simpleSoapService" 
+   	implementor="com.dove.webservice.soap.endpoint.SimpleSoapWebImpl" 
+   	address="/simpleSoapService" />
+   	-->
+   	<jaxws:endpoint id="GreetingService" 
+   	implementor="com.dove.webservice.soap.endpoint.SoapGreetingService" 
+   	address="/Greeting" />
+   	
+   	<jaxws:endpoint id="uploadfile"
+                  implementor="com.dove.webservice.soap.endpoint.UploadServiceImpl"
+                  address="/UploadWS">
+                  <jaxws:properties>
+      <entry key="mtom-enabled" value="true"/>
+    </jaxws:properties>   
+    </jaxws:endpoint>
+   	
+ 	<jaxws:endpoint id="ConvertionService" 
+ 	implementor="com.dove.webservice.soap.endpoint.SoapConvertionService" 
+ 	address="/Convert">
+                  <jaxws:properties>
+      <entry key="mtom-enabled" value="false"/>
+    </jaxws:properties>	
+    </jaxws:endpoint>
+
+</beans>
